@@ -13,8 +13,10 @@ if(isset($_POST['save'])){
     $role = mysqli_real_escape_string($conn,$_POST['role']);
 
     // checks if the username already exists in the database
-$sql = "SELECT username FROM user WHERE username = {$user}";
-// For running sql query (connection, query)
+$sql = "SELECT username FROM user WHERE username = '{$user}'";
+// echo $sql;
+// die();
+// For running $sql query (connection, query)
 $result = mysqli_query($conn, $sql) or die("Query Failed");
 
 // if blocks run if username already exist else create username 

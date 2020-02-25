@@ -13,7 +13,7 @@ if(isset($_POST['save'])){
     $role = mysqli_real_escape_string($conn,$_POST['role']);
 
     // checks if the username already exists in the database
-$sql = "SELECT username FROM user WHERE username = '{$user}'";
+$sql = "SELECT username FROM users WHERE username = '{$user}'";
 // echo $sql;
 // die();
 // For running $sql query (connection, query)
@@ -23,12 +23,13 @@ $result = mysqli_query($conn, $sql) or die("Query Failed");
 if(mysqli_num_rows($result > 0)){
     echo "<p style='color: red; text-align: center; margin: 10px 0'> Username already exist. </p>";
 }else{
-    $sql1 = "INSERT INTO user (first_name, last_name, username, password, role)
+    $sql1 = "INSERT INTO users (first_name, last_name, username, password, role)
             VALUES ('{$fname}', '{$lname}', '{$user}', '{$password}', '{$role}')";
 
     // if block executes if query runs 
     if(mysqli_query($conn, $sql1)){
-        header("Location: http://localhost/news-site/admin/users.php");
+        // instead of path i used $hostname variable and declare it in config so that in production i only have to edit in config 
+        header("Location: {$hostname}/admin/users.php");
     }
 }
 

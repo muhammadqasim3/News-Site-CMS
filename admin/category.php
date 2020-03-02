@@ -51,14 +51,34 @@
                     }else{
                         echo "<h3>No Results Found.</h3>";
                     }
-                    
+                
+                //Query for Pagination  
+                $sql1 = "SELECT COUNT(category_id) FROM categories";
+                $result_1 = mysqli_query($conn,$sql1);
+                $row_db = mysqli_fetch_row($result_1);
+                $total_record = $row_db[0];
+                $total_page = ( $total_record / $limit);
+                // show pagination
+                echo  "<ul class='pagination admin-pagination'>";
+                    if($page>1){
+                        echo "<li><a href='category.php?page=".($page-1)."'>Prev</a></li>";
+                    }
+                    if($total_record > $limit){
+                        for ($i=1; $i<=$total_page ; $i++) {
+                            if($i == $page){
+                                $cls ='btn-primary active';
+                            }else{
+                                $cls ='btn-primary';
+                            }
+                            echo"<li><a href='category.php?page=".$i."' class='{$cls}'>$i</a></li>";
+                        }
+                    }
+  
+                    if($total_page>$page){
+                        echo"<li> <a href='category.php?page=".($page+1)."'>Next</a></li>";
+                    }
+                echo "</ul>";
                 ?>
-
-                <ul class='pagination admin-pagination'>
-                    <li class="active"><a>1</a></li>
-                    <li><a>2</a></li>
-                    <li><a>3</a></li>
-                </ul>
             </div>
         </div>
     </div>

@@ -86,7 +86,7 @@
                   if($total_pages > $page){
                     echo '<li><a href="users.php?page='.($page + 1).'">Next</a></li>';
                   }
-
+                  
                   echo '</ul>';
                 }
                 ?>

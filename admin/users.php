@@ -19,7 +19,6 @@
                 ?>
                   <table class="content-table">
                       <thead>
-                          <th>S.No.</th>
                           <th>Full Name</th>
                           <th>User Name</th>
                           <th>Role</th>
@@ -31,7 +30,6 @@
                           while($row = mysqli_fetch_assoc($result)) {
                         ?>
                           <tr>
-                              <td class='id'><?php echo $serial; ?></td>
                               <td><?php echo $row['first_name'] . " ". $row['last_name']; ?></td>
                               <td><?php echo $row['username']; ?></td>
                               <td><?php

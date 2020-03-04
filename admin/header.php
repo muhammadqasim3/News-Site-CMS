@@ -47,16 +47,25 @@ if(!isset($_SESSION["username"])){
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                       <ul class="admin-menu">
+                    <ul class="admin-menu">
                             <li>
                                 <a href="post.php">Post</a>
                             </li>
+                            <?php
+                              if($_SESSION["user_role"] == '1'){
+                            ?>
                             <li>
                                 <a href="category.php">Category</a>
                             </li>
                             <li>
                                 <a href="users.php">Users</a>
                             </li>
+                            <li>
+                                <a href="settings.php">Settings</a>
+                            </li>
+                            <?php
+                              }
+                            ?>
                         </ul>
                     </div>
                 </div>

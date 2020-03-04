@@ -60,7 +60,7 @@
                                         $_SESSION["user_id"] = $row["user_id"];
                                         $_SESSION["user_role"] = $row["role"];
                                         
-                                        header("Location; {$hostname}/admin/post.php");
+                                        header("Location: {$hostname}/admin/post.php");
                                     }
                                 }else{
                                     echo '<div alert alert-danger>username or password is incorrect</div>';

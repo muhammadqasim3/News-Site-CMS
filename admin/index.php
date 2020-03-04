@@ -58,7 +58,7 @@
                                         session_start();
                                         $_SESSION["username"] = $row["username"];
                                         $_SESSION["user_id"] = $row["user_id"];
-                                        $_SESSION["role"] = $row["role"];
+                                        $_SESSION["user_role"] = $row["role"];
                                         
                                         header("Location; {$hostname}/admin/post.php");
                                     }
